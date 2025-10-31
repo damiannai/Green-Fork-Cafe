@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Green Fork Café - Menu</title>
+    <title>Green Fork Café - Contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
@@ -15,8 +15,13 @@
       .fade-menu {
         opacity: 0;
         animation: fadeIn 1.2s ease-out forwards;
-        animation-delay: 0.3s;
       }
+
+      .fade-delay-1 { animation-delay: 0.3s; }
+      .fade-delay-2 { animation-delay: 0.6s; }
+
+      .error { color: #db2777; font-size: 0.875rem; }
+      .success { color: #22c55e; font-size: 1rem; margin-top: 0.5rem; font-weight: 500; }
     </style>
   </head>
   <body class="bg-[#fafaf9]">
@@ -36,23 +41,36 @@
         <div class="hidden lg:flex lg:flex-1 lg:justify-end"></div>
       </nav>
     </header>
-
-    <main class="pt-32 px-6 lg:px-8 fade-menu pb-24">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-start gap-12">
-      <div class="text-left">
-        <h1 class="text-5xl font-semibold text-[#155534]">Our Menu</h1>
-        <p class="mt-6 text-lg text-[#22c55e]">
-          Fresh, vibrant, and 100% plant-based. From energizing smoothies and wholesome meals to indulgent vegan desserts, every bite is crafted to delight and nourish.
-        </p>
+    <main class="pt-32 pb-24">
+      <div class="max-w-3xl mx-auto text-center px-6 lg:px-0 fade-menu fade-delay-1">
+        <h1 class="text-4xl font-bold text-[#155534] mb-4">Get in Touch</h1>
+        <p class="text-[#22c55e] text-lg mb-12">Have a question or comment? Fill out the form below and we'll get back to you as soon as possible.</p>
       </div>
-      <div class="flex justify-center md:justify-end">
-        <img src="Resources/Images/Menu/Green-fork-menu.png" 
-            alt="Menu Image" 
-            class="w-full max-w-2xl rounded-lg shadow-lg object-cover">
+      <div class="max-w-md mx-auto px-6 lg:px-0 fade-menu fade-delay-2">
+        <form id="contactForm" class="bg-white shadow-md rounded-lg p-6 flex flex-col gap-4">
+          <div class="flex flex-col">
+            <label for="name" class="text-[#155534] font-medium">Name (optional)</label>
+            <input type="text" id="name" name="name" placeholder="Your name" class="mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#22c55e]" />
+          </div>
+        <div class="flex flex-col">
+        <label for="email" class="text-[#155534] font-medium">
+            Email <span class="text-red-500">*</span>
+        </label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" class="mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#22c55e]" required />
+        <span id="emailError" class="error hidden">Please enter a valid email.</span>
+        </div>
+        <div class="flex flex-col">
+        <label for="inquiry" class="text-[#155534] font-medium">
+            Inquiry <span class="text-red-500">*</span>
+        </label>
+        <textarea id="inquiry" name="inquiry" rows="5" placeholder="Write your message here..." class="mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#22c55e]" required></textarea>
+        </div>
+          <button type="submit" class="bg-[#22c55e] text-white font-semibold py-2 rounded-md hover:bg-[#16a34a] transition-colors">Send Message</button>
+          <span id="successMessage" class="success hidden">Message sent.</span>
+        </form>
       </div>
-    </div>
     </main>
-      <footer class="bg-[#ffe8b8] py-12">
+          <footer class="bg-[#ffe8b8] py-12">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -93,5 +111,26 @@
         </div>
       </div>
     </footer>
+    <script>
+      const form = document.getElementById('contactForm');
+      const emailInput = document.getElementById('email');
+      const emailError = document.getElementById('emailError');
+      const successMessage = document.getElementById('successMessage');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const emailValue = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(emailValue)) {
+          emailError.classList.remove('hidden');
+          successMessage.classList.add('hidden');
+        } else {
+          emailError.classList.add('hidden');
+          successMessage.classList.remove('hidden');
+          form.reset();
+        }
+      });
+    </script>
   </body>
 </html>

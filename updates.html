@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Green Fork Café - Menu</title>
+    <title>Green Fork Café - Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
@@ -15,7 +15,25 @@
       .fade-menu {
         opacity: 0;
         animation: fadeIn 1.2s ease-out forwards;
-        animation-delay: 0.3s;
+      }
+
+      .bg-events {
+        background: linear-gradient(to right, #db2777, #facc15);
+        color: white;
+      }
+
+      .bg-business {
+        background: linear-gradient(to right, #facc15, #db2777);
+        color: white;
+      }
+
+      .section-label {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
       }
     </style>
   </head>
@@ -24,7 +42,7 @@
       <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
         <div class="flex lg:flex-1">
           <a href="index.html" class="-m-1.5 p-1.5">
-            <span class="sr-only">Your Company</span>
+            <span class="sr-only">Green Fork Café</span>
             <img src="Resources/Images/logo_full_colour.png" alt="" class="h-25 w-25" />
           </a>
         </div>
@@ -37,22 +55,42 @@
       </nav>
     </header>
 
-    <main class="pt-32 px-6 lg:px-8 fade-menu pb-24">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-start gap-12">
-      <div class="text-left">
-        <h1 class="text-5xl font-semibold text-[#155534]">Our Menu</h1>
-        <p class="mt-6 text-lg text-[#22c55e]">
-          Fresh, vibrant, and 100% plant-based. From energizing smoothies and wholesome meals to indulgent vegan desserts, every bite is crafted to delight and nourish.
-        </p>
-      </div>
-      <div class="flex justify-center md:justify-end">
-        <img src="Resources/Images/Menu/Green-fork-menu.png" 
-            alt="Menu Image" 
-            class="w-full max-w-2xl rounded-lg shadow-lg object-cover">
+    <div class="py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:mx-0 fade-menu" style="animation-delay: 0.3s;">
+          <h2 class="text-4xl font-semibold tracking-tight text-[#155534] sm:text-5xl">Green Fork Café Updates</h2>
+          <p class="mt-2 text-lg/8 text-gray-700">Stay updated with our latest events and offerings.</p>
+        </div>
+        
+
+        <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t-4 border-[#ffe8b8] pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3 fade-menu" style="animation-delay: 0.6s;">
+          <article class="flex max-w-xl flex-col items-start justify-between">
+            <span class="section-label bg-events">Events</span>
+            <h3 class="mt-2 text-lg/6 font-semibold text-[#155534]">Farmers’ Market Meetup</h3>
+            <img src="Resources/Images/Updates/farmers-market.jpg" alt="Event Image" class="mt-4 rounded-lg shadow-md object-cover w-full h-48">
+            <p class="mt-4 text-sm/6 text-gray-700">Join us for an amazing Farmers’ Market Meetup on <time datetime="2025-10-27">October 27, 2025</time>. Connect with local farmers, enjoy fresh produce, and learn about sustainable practices.</p>
+            <p class="mt-2 text-sm/6 text-gray-500">2025/10/25 - 10:43 AM</p>
+          </article>
+
+          <article class="flex max-w-xl flex-col items-start justify-between">
+            <span class="section-label bg-business">Business</span>
+            <h3 class="mt-2 text-lg/6 font-semibold text-[#155534]">Barista and Café Attendant Job Opening</h3>
+            <img src="Resources/Images/Updates/barista.jpg" alt="Business Image" class="mt-4 rounded-lg shadow-md object-cover w-full h-48">
+            <p class="mt-4 text-sm/6 text-gray-700">We are looking for passionate individuals to join our team as Baristas and Café Attendants. If you love coffee and enjoy working in a vibrant environment, we want to hear from you!</p>
+            <p class="mt-2 text-sm/6 text-gray-500">2025/10/12 - 1:06 PM</p>
+          </article>
+
+          <article class="flex max-w-xl flex-col items-start justify-between">
+            <span class="section-label bg-events">Events</span>
+            <h3 class="mt-2 text-lg/6 font-semibold text-[#155534]">Instagram Food Challenge - [Ends 2025/10/30]</h3>
+            <img src="Resources/Images/Updates/instagram-promo.jpg" alt="Workshop Image" class="mt-4 rounded-lg shadow-md object-cover w-full h-48">
+            <p class="mt-4 text-sm/6 text-gray-700">Join our Instagram Food Challenge! Share your best photos of our dishes with us on Instagram (@greenforkcafe) for a chance to win a $25 gift card!</p>
+            <p class="mt-2 text-sm/6 text-gray-500">2025/09/31 - 9:15 AM</p>
+          </article>
+        </div>
       </div>
     </div>
-    </main>
-      <footer class="bg-[#ffe8b8] py-12">
+    <footer class="bg-[#ffe8b8] py-12">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
